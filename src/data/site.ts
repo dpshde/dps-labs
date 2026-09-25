@@ -16,7 +16,7 @@ export const identity = {
   links: {
     linkedin: "https://www.linkedin.com/in/dylan-shade",
     github: "https://github.com/dpshade",
-    spotify: "https://open.spotify.com/artist/4XOMyjPhYS9tT0SccdzZAt",
+    spotify: "https://open.spotify.com/artist/5p3OCHNDQToL17lUks6TSj",
     apple: "https://music.apple.com/us/artist/dylan-shade/1475065308",
     youtube: "https://www.youtube.com/@dylanpshade",
     canon: "https://canonchords.com/",
