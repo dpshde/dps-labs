@@ -1,0 +1,74 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { film, identity, releases, scoreHref, scores } from "../../data/site";
+---
+
+<Layout
+  context="music"
+  title="Music · Dylan Shade"
+  description="Albums, singles, and published choral and orchestral scores by Dylan Shade, plus sound design for Crossing Over."
+>
+  <h1>Music</h1>
+  <!-- TODO(dylan): drop in the Spotify embeds you actually want (artist, albums, or the later singles). -->
+  <p class="lede">
+    Albums and singles, then the published scores. Recordings are on Spotify and Apple Music.
+  </p>
+
+  <h2>Releases</h2>
+  <ul class="release-list">
+    {
+      releases.map((release) => (
+        <li class="release h-entry">
+          {release.art && <img src={release.art} alt="" width="62" height="62" />}
+          <div class="release-copy">
+            <a class="p-name u-url" href={identity.links.spotify} rel="noopener noreferrer" target="_blank">
+              {release.title}
+            </a>
+            <span class="meta">
+              {release.kind}
+              {release.year && (
+                <>
+                  {" "}
+                  · <time class="dt-published" datetime={release.year}>{release.year}</time>
+                </>
+              )}
+            </span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="listen">
+    <a href={identity.links.spotify} rel="noopener noreferrer" target="_blank">Spotify</a>
+    <span class="footer-dot" aria-hidden="true"> · </span>
+    <a href={identity.links.apple} rel="noopener noreferrer" target="_blank">Apple Music</a>
+    <span class="footer-dot" aria-hidden="true"> · </span>
+    <a href={identity.links.youtube} rel="noopener noreferrer" target="_blank">YouTube</a>
+  </p>
+
+  <h2>Published scores</h2>
+  <ul class="note-list">
+    {
+      scores.map((score) => (
+        <li class="note">
+          <div class="note-title">
+            <a href={scoreHref(score.slug)} rel="noopener noreferrer" target="_blank">
+              {score.title}
+            </a>
+            <span class="note-year">{score.arrangement}</span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+  <p>
+    <a href={identity.links.sheetMusic} rel="noopener noreferrer" target="_blank">Sheet Music Plus</a>
+  </p>
+
+  <h2>Film</h2>
+  <p>
+    <a href={film.imdb} rel="noopener noreferrer" target="_blank">{film.title}</a>
+    — {film.role}, {film.year}. {film.genre}.
+    <a href={film.youtube} rel="noopener noreferrer" target="_blank">Watch</a>.
+  </p>
+</Layout>

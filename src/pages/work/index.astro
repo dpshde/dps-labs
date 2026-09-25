@@ -1,0 +1,47 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { education, experience, openSource, projects } from "../../data/site";
+import type { Note } from "../../data/site";
+
+const sections: { title: string; notes: Note[] }[] = [
+  { title: "Selected", notes: projects },
+  { title: "Open source", notes: openSource },
+  { title: "Experience", notes: experience },
+  { title: "Education", notes: education },
+];
+---
+
+<Layout
+  context="work"
+  title="Work · Dylan Shade"
+  description="Selected tools, open source, and experience. Dylan Shade, software engineer and composer in Louisville."
+>
+  <h1>Work</h1>
+  <p class="lede">
+    Tools I’ve shipped, code in public, and the rooms I’ve worked in.
+  </p>
+  {
+    sections.map((section) => (
+      <section>
+        <h2>{section.title}</h2>
+        <ul class="note-list">
+          {section.notes.map((note) => (
+            <li class="note">
+              <div class="note-title">
+                {note.href ? (
+                  <a href={note.href} rel="noopener noreferrer" target="_blank">
+                    {note.name}
+                  </a>
+                ) : (
+                  <span>{note.name}</span>
+                )}
+                <span class="note-year">{note.year}</span>
+              </div>
+              <p>{note.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</Layout>

@@ -1,0 +1,33 @@
+---
+import { identity } from "../data/site";
+
+const profiles = [
+  { href: identity.links.linkedin, label: "LinkedIn" },
+  { href: identity.links.github, label: "GitHub" },
+  { href: identity.links.spotify, label: "Spotify" },
+];
+---
+
+<footer class="site-footer">
+  <p>
+    <a href={`mailto:${identity.email}`}>{identity.email}</a>
+  </p>
+  <p class="footer-links">
+    {
+      profiles.map((profile, index) => (
+        <>
+          {index > 0 && (
+            <span class="footer-dot" aria-hidden="true">
+              {" "}
+              ·{" "}
+            </span>
+          )}
+          <a href={profile.href} rel="me noopener noreferrer" target="_blank">
+            {profile.label}
+          </a>
+        </>
+      ))
+    }
+  </p>
+  <p class="place">{identity.place}</p>
+</footer>
