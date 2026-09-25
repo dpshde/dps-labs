@@ -18,7 +18,7 @@ export const identity = {
     github: "https://github.com/dpshade",
     spotify: "https://open.spotify.com/artist/5p3OCHNDQToL17lUks6TSj",
     apple: "https://music.apple.com/us/artist/dylan-shade/1475065308",
-    youtube: "https://www.youtube.com/@dylanpshade",
+    youtube: "https://www.youtube.com/@dpshde",
     canon: "https://canonchords.com/",
     sheetMusic: "https://www.sheetmusicplus.com/en/category/arrangeme/312/dylan-shade/",
   },

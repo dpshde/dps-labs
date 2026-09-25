@@ -6,6 +6,7 @@ test("contact and profile facts stay on the page", () => {
   assert.equal(identity.email, "dylanpriceshade@icloud.com");
   assert.equal(identity.place, "Louisville, KY");
   assert.match(identity.links.spotify, /5p3OCHNDQToL17lUks6TSj/);
+  assert.equal(identity.links.youtube, "https://www.youtube.com/@dpshde");
   assert.match(identity.links.canon, /canonchords\.com/);
 });
 
