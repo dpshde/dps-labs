@@ -1,59 +1,65 @@
 ---
+import "../styles/fonts.css";
+import "../styles/global.css";
+import SiteNav from "../components/site-nav.astro";
+import SiteFooter from "../components/site-footer.astro";
+
 interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
+  context: "about" | "work" | "music";
 }
 
-const { 
-  title = "Labs | Dylan Shade", 
-  description = "Full-stack engineer. 2x hackathon champion. 25,000+ users served." 
-} = Astro.props;
-
+const { title, description, context } = Astro.props;
 const siteUrl = "https://dpslabs.dev";
+const canonical = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-rhythm-context={context}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    
     <link rel="icon" type="image/png" href="/images/DPS LABS.png" />
     <link rel="apple-touch-icon" href="/images/DPS LABS.png" />
-    <link rel="canonical" href={siteUrl} />
-    
+    <link rel="canonical" href={canonical} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
-    
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-    
     <title>{title}</title>
-    <script type="text/javascript">
-      (function(e,c){if(!c.__SV){var l,h;window.mixpanel=c;c._i=[];c.init=function(q,r,f){function t(d,a){var g=a.split(".");2==g.length&&(d=d[g[0]],a=g[1]);d[a]=function(){d.push([a].concat(Array.prototype.slice.call(arguments,0)))}}var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";b.people=b.people||[];b.toString=function(d){var a="mixpanel";"mixpanel"!==f&&(a+="."+f);d||(a+=" (stub)");return a};b.people.toString=function(){return b.toString(1)+".people (stub)"};l="disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders start_session_recording stop_session_recording people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
-      for(h=0;h<l.length;h++)t(b,l[h]);var n="set set_once union unset remove delete".split(" ");b.get_group=function(){function d(p){a[p]=function(){b.push([g,[p].concat(Array.prototype.slice.call(arguments,0))])}}for(var a={},g=["get_group"].concat(Array.prototype.slice.call(arguments,0)),m=0;m<n.length;m++)d(n[m]);return a};c._i.push([q,r,f])};c.__SV=1.2;var k=e.createElement("script");k.type="text/javascript";k.async=!0;k.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===
-      e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=e.getElementsByTagName("script")[0];e.parentNode.insertBefore(k,e)}})(document,window.mixpanel||[])
-
-      mixpanel.init('4e7fa8ce2d7134d18dbdbe0ded5c1be9', {
-        autocapture: true,
-        record_sessions_percent: 100,
-      })
-    </script>
   </head>
   <body>
-    <slot />
+    <a class="skip-link" href="#content">Skip to content</a>
+    <div class="site-shell">
+      <header class="site-header">
+        <SiteNav />
+      </header>
+      <div class="site-main">
+        <main id="content">
+          <slot />
+        </main>
+        <SiteFooter />
+      </div>
+    </div>
+    <script is:inline>
+      window.addEventListener("load", function () {
+        var script = document.createElement("script");
+        script.src = "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+        script.async = true;
+        script.onload = function () {
+          window.mixpanel.init("4e7fa8ce2d7134d18dbdbe0ded5c1be9", {
+            autocapture: false,
+            record_sessions_percent: 0,
+            track_pageview: true,
+          });
+        };
+        document.body.appendChild(script);
+      });
+    </script>
   </body>
 </html>
-
-<style is:global>
-  @import '../styles/global.css';
-</style>

@@ -3,6 +3,7 @@ import vercel from '@astrojs/vercel/static';
 
 export default defineConfig({
   output: 'static',
+  trailingSlash: 'always',
   adapter: vercel({
     webAnalytics: { enabled: true }
   }),
