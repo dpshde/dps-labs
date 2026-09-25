@@ -165,10 +165,10 @@ export type Release = {
 
 /** Recordings. Titles link to the artist page until specific Spotify URLs are chosen. */
 export const releases: Release[] = [
-  { title: "Pacific", year: "2019", kind: "Album", art: "/images/albums/Pacific.jpeg" },
-  { title: "Nightfall", year: "2019", kind: "Single", art: "/images/albums/Nightfall.jpg" },
-  { title: "Glimpse", year: "2020", kind: "Album", art: "/images/albums/Glimpse.jpeg" },
-  { title: "Serenity", year: "2021", kind: "Album", art: "/images/albums/Serenity.jpeg" },
+  { title: "Pacific", year: "2019", kind: "Album", art: "/images/albums/pacific.webp" },
+  { title: "Nightfall", year: "2019", kind: "Single", art: "/images/albums/nightfall.webp" },
+  { title: "Glimpse", year: "2020", kind: "Album", art: "/images/albums/glimpse.webp" },
+  { title: "Serenity", year: "2021", kind: "Album", art: "/images/albums/serenity.webp" },
   // TODO(dylan): add years and per-track Spotify URLs for the later singles.
   { title: "Lift the Window", year: "", kind: "Single" },
   { title: "Not My Fault", year: "", kind: "Single" },

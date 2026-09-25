@@ -19,7 +19,9 @@ import { film, identity, releases, scoreHref, scores } from "../../data/site";
     {
       releases.map((release) => (
         <li class="release h-entry">
-          {release.art && <img src={release.art} alt="" width="62" height="62" />}
+          {release.art && (
+            <img src={release.art} alt="" width="62" height="62" decoding="async" />
+          )}
           <div class="release-copy">
             <a class="p-name u-url" href={identity.links.spotify} rel="noopener noreferrer" target="_blank">
               {release.title}

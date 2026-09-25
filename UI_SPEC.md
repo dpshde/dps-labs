@@ -2,7 +2,7 @@
 
 The December 2025 dark/gold ŌRBIT specification is retired. Do not reintroduce charcoal backgrounds, gold (`#D4A574`) pills, horizontal snap panels, or bento cards.
 
-The live system is the paper desk and dotted writing sheet in [`src/styles/global.css`](src/styles/global.css):
+The live system is the warm paper desk in [`src/styles/global.css`](src/styles/global.css):
 
 | Token | Value |
 | --- | --- |
@@ -10,7 +10,7 @@ The live system is the paper desk and dotted writing sheet in [`src/styles/globa
 | Sheet | `--sheet` `#fdfcf9` |
 | Ink | `--text` `#1d1a16` |
 | Muted | `--muted` `#6d665c` |
-| Accent | `--accent` `#2d6557` (nav, and the wavy link stroke) |
+| Accent | `--accent` `#2d6557` (nav, and a 1px link underline) |
 | Rhythm | `--rhythm` `31px` — spacing is a fraction or multiple of this |
 | Measure | `--site-measure` `40rem` |
 | Rail | Sticky left nav at `≥900px`. Active item is ink; the others are accent. |

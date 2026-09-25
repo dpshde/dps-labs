@@ -1,8 +1,7 @@
 /* ============================================
-   Dylan Shade — paper desk + dotted sheet
-   Tokens follow the stationery system:
-   warmth, rhythm, measure, forest accent.
-   Fraunces Soft (OFL) + Geist (OFL), self-hosted.
+   Dylan Shade — warm paper desk
+   Tokens: warmth, rhythm, measure, forest accent.
+   Fraunces Soft (OFL) + Geist (OFL), latin-only.
    ============================================ */
 
 *,
@@ -27,23 +26,14 @@
   --muted: #6d665c;
   --accent: #2d6557;
   --rule: hsl(calc(38deg + var(--paper-warmth)) calc(22% * var(--paper-tint)) 80.2%);
-  /* Slightly deeper than the raw jig ink so 1px dots still read on the sheet. */
-  --dot-grid-ink: hsl(calc(48deg + var(--paper-warmth)) calc(22% * var(--paper-tint)) 70%);
-  --dot-grid-strength: 90%;
-  --dot-grid-color: color-mix(in srgb, var(--dot-grid-ink) var(--dot-grid-strength), transparent);
 
   --font-display: "Fraunces Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-body: "Geist Variable", "Geist", ui-sans-serif, system-ui, sans-serif;
-
-  /* Hand-drawn stroke. The painted green tracks --accent (#2d6557). */
-  --wavy-underline: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='6' viewBox='0 0 28 6' preserveAspectRatio='none'%3E%3Cpath d='M0 4.6C2.2 0.8 4.6 5.4 7 3.2C9.4 1 11.6 5.5 14 3.3C16.4 1.1 18.8 5.4 21.2 3.2C23.6 1 25.6 4.4 28 2.4' fill='none' stroke='%232d6557' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
 }
 
 html {
   /* Keep the rem root at 16px so --site-measure: 40rem stays ~640px. */
-  background-color: var(--sheet);
-  background-image: radial-gradient(circle, var(--dot-grid-color) 1.15px, transparent 1.35px);
-  background-size: var(--rhythm) var(--rhythm);
+  background: var(--sheet);
   color: var(--text);
   font-family: var(--font-body);
   font-size: 16px;
@@ -99,13 +89,6 @@ ul {
   color: var(--text);
 }
 
-/* Phones: shift the lattice so an edge column does not sit on the screen edge. */
-@media (max-width: 699px) {
-  html {
-    background-position: calc(var(--rhythm) * -0.5) 0;
-  }
-}
-
 .skip-link {
   position: absolute;
   left: var(--rhythm);
@@ -139,7 +122,6 @@ ul {
 .site-nav a {
   color: var(--accent);
   text-decoration: none;
-  background-image: none;
   line-height: var(--rhythm);
   font-size: 1.05em;
 }
@@ -158,7 +140,7 @@ h1 {
   font-size: 2.15rem;
   line-height: calc(var(--rhythm) * 1.75);
   letter-spacing: -0.02em;
-  font-variation-settings: "SOFT" 70, "opsz" 48, "WONK" 0;
+  font-variation-settings: "SOFT" 70;
   text-wrap: balance;
   color: var(--text);
   margin-bottom: var(--rhythm);
@@ -175,7 +157,7 @@ h2 {
   font-size: calc(var(--rhythm) * 0.84);
   line-height: calc(var(--rhythm) * 1.5);
   letter-spacing: -0.015em;
-  font-variation-settings: "SOFT" 60, "opsz" 36, "WONK" 0;
+  font-variation-settings: "SOFT" 60;
   color: var(--text);
   margin-top: calc(var(--rhythm) * 2);
   margin-bottom: calc(var(--rhythm) * 0.5);
@@ -198,19 +180,16 @@ p {
 main a,
 .site-footer a {
   color: var(--accent);
-  text-decoration: none;
-  background-image: var(--wavy-underline);
-  background-repeat: repeat-x;
-  background-size: 28px 6px;
-  background-position: left 1.02em;
-  padding-bottom: 0.12em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-underline-offset: 0.18em;
 }
 
 main a:hover,
 .site-footer a:hover {
   color: color-mix(in srgb, var(--accent) 78%, black);
+  text-decoration-color: currentColor;
 }
 
 .note-list {

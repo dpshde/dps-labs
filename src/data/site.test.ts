@@ -40,6 +40,10 @@ test("music keeps four early releases, later singles, eight scores, and educatio
     releases.slice(0, 4).map((release) => release.title),
     ["Pacific", "Nightfall", "Glimpse", "Serenity"],
   );
+  assert.ok(
+    releases.slice(0, 4).every((release) => release.art?.endsWith(".webp")),
+    "album thumbs are the compressed webp files",
+  );
   assert.ok(releases.some((release) => release.title === "Lift the Window"));
   assert.ok(releases.some((release) => release.title === "Not My Fault"));
   assert.equal(scores.length, 8);
