@@ -68,44 +68,11 @@ export const projects: Note[] = [
     description: "Semantic Bible search running in the browser.",
     href: "https://github.com/dpshade/scripture",
   },
-];
-
-export const openSource: Note[] = [
-  {
-    name: "jj-opencode",
-    year: "2025",
-    description: "JJ define-before-implement workflow plugin for OpenCode.",
-    href: "https://github.com/dpshade/jj-opencode",
-  },
-  {
-    name: "LLM Fuel",
-    year: "2025",
-    description: "Documentation aggregation pipeline for AI training.",
-    href: "https://github.com/dpshade/permaweb-llm-fuel",
-  },
   {
     name: "Glossary",
     year: "2025",
-    description: "15× performance work on the permaweb glossary. Featured in ar.io docs.",
+    description: "15× faster permaweb glossary, featured in the ar.io docs.",
     href: "https://github.com/dpshade/permaweb-glossary",
-  },
-  {
-    name: "raycast-opencode",
-    year: "2025",
-    description: "Raycast extension for OpenCode, with session search.",
-    href: "https://github.com/dpshade/raycast-opencode",
-  },
-  {
-    name: "Prompt Suite",
-    year: "2025",
-    description: "AI context management with a CLI, a TUI, and Raycast.",
-    href: "https://github.com/dpshade/pocket-prompt-suite",
-  },
-  {
-    name: "auto-title",
-    year: "2025",
-    description: "Obsidian plugin that names notes with an LLM.",
-    href: "https://github.com/dpshade/auto-title",
   },
 ];
 
@@ -119,22 +86,22 @@ export const experience: Note[] = [
   {
     name: "Forward Research",
     year: "2025",
-    description: "Software Engineer. Developer tooling, an AI documentation system, and the AO Cookbook.",
+    description: "Software Engineer. Tooling, AI docs, and the AO Cookbook.",
   },
   {
     name: "JPMorgan Chase",
     year: "2023–25",
-    description: "Software Engineer. AWS migration, LLM-powered systems, and two hackathon championships.",
+    description: "Software Engineer. AWS migration, LLM systems, two hackathon wins.",
   },
   {
     name: "Stantec",
     year: "2023",
-    description: "Data Science Intern. DBScan clustering, a model-testing dashboard, and anomaly detection.",
+    description: "Data Science Intern. Clustering, a testing dashboard, anomaly detection.",
   },
   {
     name: "CSI",
     year: "2022",
-    description: "Software Developer Intern. Full-stack enterprise application development.",
+    description: "Software Developer Intern. Full-stack enterprise apps.",
   },
   {
     name: "OpenText",

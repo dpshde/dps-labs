@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { education, experience, identity, openSource, projects, releases, scores, scoreHref } from "./site.ts";
+import { education, experience, identity, projects, releases, scores, scoreHref } from "./site.ts";
 
 test("contact and profile facts stay on the page", () => {
   assert.equal(identity.email, "dylanpriceshade@icloud.com");
@@ -23,7 +23,7 @@ test("experience keeps the rooms Dylan has worked in, including Papa Johns", () 
   assert.match(experience[0]?.description ?? "", /Applied AI Engineer/);
 });
 
-test("selected work and open source keep the shipped names", () => {
+test("selected work keeps the shipped names and only Glossary from open source", () => {
   assert.deepEqual(projects.map((item) => item.name), [
     "Canon",
     "Arbit Studio",
@@ -31,8 +31,14 @@ test("selected work and open source keep the shipped names", () => {
     "Vivace Theory",
     "Chord Solver",
     "Scripture",
+    "Glossary",
   ]);
-  assert.equal(openSource.length, 6);
+  const dropped = ["jj-opencode", "LLM Fuel", "raycast-opencode", "Prompt Suite", "auto-title"];
+  assert.equal(
+    projects.some((item) => dropped.includes(item.name)),
+    false,
+  );
+  assert.equal(projects.find((item) => item.name === "Glossary")?.href, "https://github.com/dpshade/permaweb-glossary");
   assert.ok(projects.every((item) => item.href?.startsWith("https://")));
 });
 

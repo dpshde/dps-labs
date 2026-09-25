@@ -1,11 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { education, experience, openSource, projects } from "../../data/site";
+import { education, experience, projects } from "../../data/site";
 import type { Note } from "../../data/site";
 
 const sections: { title: string; notes: Note[] }[] = [
   { title: "Selected", notes: projects },
-  { title: "Open source", notes: openSource },
   { title: "Experience", notes: experience },
   { title: "Education", notes: education },
 ];
@@ -14,17 +13,17 @@ const sections: { title: string; notes: Note[] }[] = [
 <Layout
   context="work"
   title="Work · Dylan Shade"
-  description="Selected tools, open source, and experience. Dylan Shade, software engineer and composer in Louisville."
+  description="Selected tools and experience. Dylan Shade, software engineer and composer in Louisville."
 >
   <h1>Work</h1>
   <p class="lede">
-    Tools I’ve shipped, code in public, and the rooms I’ve worked in.
+    Tools I’ve shipped, and the rooms I’ve worked in.
   </p>
   {
     sections.map((section) => (
       <section>
         <h2>{section.title}</h2>
-        <ul class="note-list">
+        <ul class="note-list note-blocks">
           {section.notes.map((note) => (
             <li class="note">
               <div class="note-title">
