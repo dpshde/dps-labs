@@ -35,17 +35,19 @@ test("selected work and open source keep the shipped names", () => {
   assert.ok(projects.every((item) => item.href?.startsWith("https://")));
 });
 
-test("music keeps four early releases, later singles, eight scores, and education", () => {
+test("music keeps Pacific, Nightfall, Glimpse, and Serenity, eight scores, and education", () => {
   assert.deepEqual(
-    releases.slice(0, 4).map((release) => release.title),
+    releases.map((release) => release.title),
     ["Pacific", "Nightfall", "Glimpse", "Serenity"],
   );
   assert.ok(
-    releases.slice(0, 4).every((release) => release.art?.endsWith(".webp")),
+    releases.every((release) => release.art?.endsWith(".webp")),
     "album thumbs are the compressed webp files",
   );
-  assert.ok(releases.some((release) => release.title === "Lift the Window"));
-  assert.ok(releases.some((release) => release.title === "Not My Fault"));
+  assert.equal(
+    releases.some((release) => release.title === "Lift the Window" || release.title === "Not My Fault"),
+    false,
+  );
   assert.equal(scores.length, 8);
   assert.match(scoreHref(scores[0]!.slug), /sheetmusicplus\.com/);
   assert.ok(education.some((item) => item.name === "University of Kentucky"));

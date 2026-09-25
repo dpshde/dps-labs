@@ -169,9 +169,6 @@ export const releases: Release[] = [
   { title: "Nightfall", year: "2019", kind: "Single", art: "/images/albums/nightfall.webp" },
   { title: "Glimpse", year: "2020", kind: "Album", art: "/images/albums/glimpse.webp" },
   { title: "Serenity", year: "2021", kind: "Album", art: "/images/albums/serenity.webp" },
-  // TODO(dylan): add years and per-track Spotify URLs for the later singles.
-  { title: "Lift the Window", year: "", kind: "Single" },
-  { title: "Not My Fault", year: "", kind: "Single" },
 ];
 
 export type Score = {
